@@ -46,7 +46,7 @@
       dest: /etc/systemd/system/backend.service
   
   - name: install mysql and crypto libraries
-    ansible.builtin.package:
+    ansible.builtin.pip:
       name: "{{ item }}"
       executable: pip3.9
     loop:
