@@ -50,7 +50,7 @@
       name: "{{ item }}"
       executable: pip3.9
     loop:
-      - PyMySQL
+      - mysql
       - cryptography
 
   - name: import mysql data
