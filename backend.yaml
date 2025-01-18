@@ -50,9 +50,9 @@
       name: "{{ item }}"
       executable: pip3.9
     loop:
-      - mysql
+      - PyMySQL
       - cryptography
-
+      
   - name: import mysql data
     community.mysql.mysql_db:
       state: import
@@ -61,7 +61,7 @@
       login_password: ExpenseApp@1
       login_host: database.durgam.online
       target: /app/schema/backend.sql
-  
+
   - name: daemon reload and restart service
     ansible.builtin.systemd_service:
       enabled: true
