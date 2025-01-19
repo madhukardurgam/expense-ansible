@@ -4,8 +4,11 @@
   tasks:
   - name: install python libraries
     ansible.builtin.pip:
-      name: MySQL-python
+      name: "{{ item }}"
       executable: pip3.9
+    loop:
+    - PyMySQL
+    - cryptography
 
   - name: mysql-server installation
     ansible.builtin.package:
@@ -23,3 +26,5 @@
       login_user: root
       login_password: ExpenseApp@1
       login_host: database.durgam.online
+    register: mysql_info
+    ignore_errors: true
