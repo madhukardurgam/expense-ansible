@@ -4,9 +4,9 @@
   tasks:
   - name: install python libraries
     ansible.builtin.pip:
-      name: PyMySQL
+      name: MySQL-python
       executable: pip3.9
-      
+
   - name: mysql-server installation
     ansible.builtin.package:
       name: mysql-server
