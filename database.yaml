@@ -2,6 +2,11 @@
   hosts: database
   become: yes
   tasks:
+  - name: install python libraries
+    ansible.builtin.pip:
+      name: PyMySQL
+      executable: pip3.9
+      
   - name: mysql-server installation
     ansible.builtin.package:
       name: mysql-server
@@ -18,4 +23,3 @@
       login_user: root
       login_password: ExpenseApp@1
       login_host: database.durgam.online
-      
