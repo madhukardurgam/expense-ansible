@@ -28,3 +28,11 @@
       login_host: database.durgam.online
     register: mysql_info
     ignore_errors: true
+
+  - name: print the output
+    ansible.builtin.debug:
+      msg: "mysql_info :{{ mysql_info }}"
+
+  - name: setuproot password
+    ansible.builtin.command: "mysql_secure_installation --set-root-pass ExpenseApp@1"
+    when: mysql_info.failed is true
